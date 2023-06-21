@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * checker - checks if the args are correct.
