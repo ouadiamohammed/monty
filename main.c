@@ -3,10 +3,12 @@
 
 /**
  * main - main function.
- * 
+ * @argc: argument counter.
+ * @argv: argument Number.
+ * Return: depend on condition.
  */
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	FILE *file = fopen(argv[1], "r");
 	char *bufline = NULL, *user_opcode = NULL;
@@ -28,7 +30,7 @@ int main (int argc, char *argv[])
 			line_number++;
 			continue;
 		}
-		for( i = 0; instruction[i].opcode != NULL; i++)
+		for (i = 0; instruction[i].opcode != NULL; i++)
 		{
 			if (strcmp(user_opcode, instruction[i].opcode) == 0)
 			{
@@ -45,5 +47,5 @@ int main (int argc, char *argv[])
 	}
 	free_stack(stack);
 	fclose(file);
-	return(0);
+	return (0);
 }
