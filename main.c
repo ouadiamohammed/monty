@@ -18,7 +18,8 @@ int main(int argc, char *argv[])
 	int i = 0;
 
 	instruction_t instruction[] = {
-		{"push", _push}, {"pall", _pall}, {NULL, NULL}
+		{"push", _push}, {"pall", _pall},
+		{"pint", _pint}, {NULL, NULL}
 	};
 
 	checker(argc, argv, file);
