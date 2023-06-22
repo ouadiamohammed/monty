@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 		}
 		if (instruction[i].opcode == NULL)
 		{
-			fprintf(stderr, "L%d: unkown instruction %s\n", line_number, user_opcode);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, user_opcode);
 			fclose(file);
 			exit(EXIT_FAILURE);
 		}

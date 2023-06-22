@@ -42,7 +42,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	}
 
 	str = strtok(NULL, " ");
-	if (check_num(str) == -1 || str == NULL)
+	if (str == NULL || check_num(str) == -1)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack(*stack);

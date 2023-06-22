@@ -6,16 +6,19 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # monty bytcode test case:
-montyBytes="pint"
+montyBytes="push 1
+pall
+push a"
 
 # make test case file:
 echo "$montyBytes" > testCase00
 
 # Run the program and capture its output
-program_output=$(./monty testCase00 2>&1 >/dev/null)
+program_output=$(./monty testCase00 2>&1)
 
 # Specify the expected result
-expected_result="L1: can't pint, stack empty"
+expected_result="1
+L3: usage: push integer"
 
 # Compare the program's output with the expected result
 if [ "$program_output" == "$expected_result" ]; then
