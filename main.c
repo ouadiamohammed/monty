@@ -19,7 +19,8 @@ int main(int argc, char *argv[])
 
 	instruction_t instruction[] = {
 		{"push", _push}, {"pall", _pall}, {"pint", _pint}, {"pop", _pop},
-		{"swap", _swap}, {"add", _add}, {"nop", _nop}, {"sub", _sub}, {NULL, NULL}
+		{"swap", _swap}, {"add", _add}, {"nop", _nop}, {"sub", _sub},
+		{"div", _div}, {NULL, NULL}
 	};
 	checker(argc, argv, file);
 	while (getline(&bufline, &bufline_length, file) != -1 && !feof(file))
@@ -43,8 +44,7 @@ int main(int argc, char *argv[])
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, user_opcode);
 			fclose(file);
 			exit(EXIT_FAILURE);
-		}
-		line_number++;
+		} line_number++;
 	}
 	free_stack(stack);
 	free(bufline);

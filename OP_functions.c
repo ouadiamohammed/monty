@@ -48,3 +48,32 @@ void	_sub(stack_t **stack, unsigned int line_number)
 	number->next->n = res;
 	_pop(stack, line_number);
 }
+
+/**
+ * _div - divides the top two elements of the stack.
+ * @stack: stack.
+ * @line_number: line number.
+ * Return: void
+*/
+
+void _div(stack_t **stack, unsigned int line_number)
+{
+	int number;
+
+	number = (*stack)->next->n;
+	if (!(*stack) || !((*stack)->next))
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
+	if (number == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
+	number = number / (*stack)->n;
+	_pop(stack, line_number);
+	(*stack)->n = number;
+}
