@@ -54,9 +54,16 @@ void _push(stack_t **stack, unsigned int line_number)
 	*stack = new;
 }
 
+/**
+ * _pall - prints all the elements in the stack.
+ * @stack: stack.
+ * @line_number: line number.
+ * Return: void
+ */
+
 void _pall(stack_t **stack,  __attribute__ ((unused))unsigned int line_number)
 {
-	
+
 	stack_t *num;
 
 	num = *stack;
