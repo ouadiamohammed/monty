@@ -6,19 +6,18 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # monty bytcode test case:
-montyBytes="push -10
-push -2
-add
+montyBytes="push 1
+div
 pall"
 
 # make test case file:
 echo "$montyBytes" > testCase00
 
 # Run the program and capture its output
-program_output=$(./monty testCase00)
+program_output=$(./monty testCase00 2>&1 >/dev/null)
 
 # Specify the expected result
-expected_result="-12"
+expected_result="L2: can't div, stack too short"
 
 # Compare the program's output with the expected result
 if [ "$program_output" == "$expected_result" ]; then
