@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	checker(argc, argv, file);
 	while (getline(&bufline, &bufline_length, file) != -1 && !feof(file))
 	{
-		user_opcode = strtok(bufline, " \n");
+		user_opcode = strtok(bufline, " \n\t");
 		if (user_opcode == NULL)
 		{
 			line_number++;
