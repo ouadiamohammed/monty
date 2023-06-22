@@ -30,7 +30,7 @@ int check_num(char *str)
 
 void _push(stack_t **stack, unsigned int line_number)
 {
-	int num;
+	int number;
 	char *str;
 	stack_t *new;
 
@@ -44,8 +44,8 @@ void _push(stack_t **stack, unsigned int line_number)
 	str = strtok(NULL, " ");
 	if (str != NULL || check_num(str) != -1)
 	{
-		num = atoi(str);
-		new->n = num;
+		number = atoi(str);
+		new->n = number;
 		new->prev = NULL;
 		new->next = *stack;
 		*stack = new;
@@ -67,13 +67,13 @@ void _push(stack_t **stack, unsigned int line_number)
 void _pall(stack_t **stack,  __attribute__ ((unused))unsigned int line_number)
 {
 
-	stack_t *num;
+	stack_t *number;
 
-	num = *stack;
-	while (num != NULL)
+	number = *stack;
+	while (number != NULL)
 	{
-		printf("%d\n", num->n);
-		num = num->next;
+		printf("%d\n", number->n);
+		number = number->next;
 	}
 }
 
