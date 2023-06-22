@@ -50,7 +50,8 @@ void _push(stack_t **stack, unsigned int line_number)
 		new->next = *stack;
 		*stack = new;
 	}
-	else {
+	else
+	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
@@ -108,7 +109,7 @@ void	_pop(stack_t **stack, unsigned int line_number)
 	temp = *stack;
 	if (!*stack)
 	{
-		fprintf(stderr,"L%d: can't pop an empty stack\n", line_number);
+		fprintf(stderr,  "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if (temp->next == NULL)
@@ -122,6 +123,4 @@ void	_pop(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = NULL;
 		free(temp);
 	}
-
-	
 }
