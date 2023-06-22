@@ -47,3 +47,16 @@ void    _add(stack_t **stack, unsigned int line_number)
 	(*stack)->n = number;
 
 }
+
+/**
+ * _nop - doesn't do anything.
+ * @stack: stack.
+ * @line_number: line number
+ * Return: void.
+*/
+
+void	_nop(__attribute__ ((unused))stack_t **stack,
+			__attribute__ ((unused))unsigned int line_number)
+{
+	;
+}
