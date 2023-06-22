@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	int i = 0;
 
 	instruction_t instruction[] = {
-		{"push", _push}, {NULL, NULL}
+		{"push", _push}, {"pall", _pall}, {NULL, NULL}
 	};
 
 	checker(argc, argv, file);
@@ -41,11 +41,15 @@ int main(int argc, char *argv[])
 		if (instruction[i].opcode == NULL)
 		{
 			fprintf(stderr, "L%d: unkown instruction %s\n", line_number, user_opcode);
+			free_stack(stack);
+            free(bufline);
+            fclose(file);
 			exit(EXIT_FAILURE);
 		}
 		line_number++;
 	}
 	free_stack(stack);
+	free(bufline);
 	fclose(file);
 	return (0);
 }

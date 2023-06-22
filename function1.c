@@ -53,3 +53,16 @@ void _push(stack_t **stack, unsigned int line_number)
 	new->next = *stack;
 	*stack = new;
 }
+
+void _pall(stack_t **stack,  __attribute__ ((unused))unsigned int line_number)
+{
+	
+	stack_t *num;
+
+	num = *stack;
+	while (num != NULL)
+	{
+		printf("%d\n", num->n);
+		num = num->next;
+	}
+}
