@@ -44,8 +44,9 @@ typedef struct instruction_s
 void checker(int argc, char *argv[], FILE *file);
 int check_num(char *str);
 void _push(stack_t **stack, unsigned int line_number);
-void free_stack(stack_t *head);
 void _pall(stack_t **stack,  __attribute__ ((unused))unsigned int line_number);
 void	_pint(stack_t **stack, unsigned int line_number);
+void	_pop(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t *head);
 
 #endif

@@ -14,7 +14,7 @@ int check_num(char *str)
 		i++;
 	while (str[i] != '\0')
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if (str[i] < 48 || str[i] > 57)
 			return (-1);
 		i++;
 	}
@@ -42,17 +42,18 @@ void _push(stack_t **stack, unsigned int line_number)
 	}
 
 	str = strtok(NULL, " ");
-	if (str == NULL || check_num(str) == -1)
+	if (str != NULL || check_num(str) != -1)
 	{
+		num = atoi(str);
+		new->n = num;
+		new->prev = NULL;
+		new->next = *stack;
+		*stack = new;
+	}
+	else {
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	num = atoi(str);
-	new->n = num;
-	new->prev = NULL;
-	new->next = *stack;
-	*stack = new;
 }
 
 /**
@@ -91,4 +92,36 @@ void	_pint(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
+}
+
+/**
+ * _pop - removes the top elements of the stack.
+ * @stack: stack.
+ * @line_number: line number.
+ * Return: void.
+ */
+
+void	_pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+
+	temp = *stack;
+	if (!*stack)
+	{
+		fprintf(stderr,"L%d: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (temp->next == NULL)
+	{
+		free(*stack);
+		*stack = NULL;
+	}
+	else
+	{
+		(*stack) = (*stack)->next;
+		(*stack)->prev = NULL;
+		free(temp);
+	}
+
+	
 }

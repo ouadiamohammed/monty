@@ -19,9 +19,8 @@ int main(int argc, char *argv[])
 
 	instruction_t instruction[] = {
 		{"push", _push}, {"pall", _pall},
-		{"pint", _pint}, {NULL, NULL}
+		{"pint", _pint}, {"pop", _pop}, {NULL, NULL}
 	};
-
 	checker(argc, argv, file);
 	while (getline(&bufline, &bufline_length, file) != -1 && !feof(file))
 	{
