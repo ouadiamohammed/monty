@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 		{
 			if (strcmp(user_opcode, instruction[i].opcode) == 0)
 			{
-				instruction[i].f(&stack, line_number);
+				instruction[i].f(&stack, line_number, );
 				break;
 			}
 		}
